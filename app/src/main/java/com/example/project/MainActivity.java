@@ -24,11 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         myPreferenceRef = getSharedPreferences("MyAppPreferenceString", MODE_PRIVATE);
         myPreferenceEditor = myPreferenceRef.edit();
-        // myPreferenceRef = getPreferences(MODE_PRIVATE);
-        //myPreferenceEditor = myPreferenceRef.edit();
 
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,16 +37,12 @@ public class MainActivity extends AppCompatActivity {
         prefTextRef=new TextView(this);
         prefTextRef=(TextView)findViewById(R.id.prefText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
-        //myPreferenceEditor = myPreferenceRef.edit();
     }
 
     @Override
     protected void onResume() {
 
         super.onResume();
-
-        //setContentView(R.layout.activity_main);
-
 
         myPreferenceRef = getSharedPreferences("MyAppPreferenceString", MODE_PRIVATE);
         myPreferenceEditor = myPreferenceRef.edit();

@@ -31,42 +31,18 @@ public class SharedPrefActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-/*
-        //myPreferenceRef = getPreferences(MODE_PRIVATE);
-        //myPreferenceEditor = myPreferenceRef.edit();
-
-        newPrefText=new EditText(this);
-        newPrefText=(EditText)findViewById(R.id.editText);
-        myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
-        myPreferenceEditor.apply();
-
-        // Display the new preference
-        TextView prefTextRef=new TextView(this);
-        prefTextRef=(TextView)findViewById(R.id.testText);
-        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
-
-        // Clear the EditText
-        newPrefText.setText("");
-        */
-
     }
 
     public void savePref(View v){
-        // Get the text
-        //EditText newPrefText=new EditText(this);
         newPrefText=(EditText)findViewById(R.id.editText);
 
-        // Store the new preference
         myPreferenceEditor.putString("MyAppPreferenceString", newPrefText.getText().toString());
         myPreferenceEditor.apply();
 
-        // Display the new preference
         TextView prefTextRef=new TextView(this);
         prefTextRef=(TextView)findViewById(R.id.testText);
         prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
 
-        // Clear the EditText
         newPrefText.setText("");
     }
 }

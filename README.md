@@ -74,8 +74,33 @@ android:layout_marginTop="50dp"
 android:layout_marginBottom="50dp"
 tools:ignore="MissingConstraints" />
 
-Efter detta skapades en ny metod i ""
+Efter detta skapades en ny metod i "MainActivity" vid namn "onResume" som gör så att det som
+skrevs in i SharedPrefActivity syns i "main activity" när man går tillbaka dit. Koden
+till det skrevs såhär:
 
+    @Override
+    protected void onResume() {
 
+        super.onResume();
+
+        myPreferenceRef = getSharedPreferences("MyAppPreferenceString", MODE_PRIVATE);
+        myPreferenceEditor = myPreferenceRef.edit();
+
+        Log.d("===>", "" + myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+
+        TextView prefTextRef;
+        prefTextRef = findViewById(R.id.prefText);
+        prefTextRef.setText(myPreferenceRef.getString("MyAppPreferenceString", "No preference found."));
+    }
+
+Efter detta var gjort syntes inget i MainActivity, vilket det borde göra. Jag påbörjade då
+att debugga. När jag skrivit Log.d märktes att det inte lagrades någon text i "onResume".
+Efter mycket debuggande märkte jag att felet var att jag inte hade kopplat min preference
+med min TextView.
+
+Efter det syntes texten som hade skrivits i SharedPrefActivity. Dock var en stor del av
+texten gömd bakom knappen som tar en till SharedPrefActivity. För att lösa detta Gick jag
+till TextView i activity_main och ändrade "layout_height" från "wrap_content" till 
+"match_parent". Efter detta gjordes syntes texten under knappen istället.
 
 ![](android.png)
