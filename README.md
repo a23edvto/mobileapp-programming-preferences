@@ -103,4 +103,4 @@ texten gömd bakom knappen som tar en till SharedPrefActivity. För att lösa de
 till TextView i activity_main och ändrade "layout_height" från "wrap_content" till 
 "match_parent". Efter detta gjordes syntes texten under knappen istället.
 
-![](android.png)
+![img_1.png](img_1.png)![img_2.png](img_2.png)![img_3.png](img_3.png)![img_4.png](img_4.png)
